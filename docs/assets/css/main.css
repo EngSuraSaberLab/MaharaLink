@@ -318,3 +318,31 @@
     height: 36px;
   }
 }
+
+@media (max-width: 1199px) {
+  .auth-buttons {
+    min-width: 110px;
+  }
+
+  .header .btn-getstarted,
+  .header .btn-getstarted:focus {
+    min-height: 42px;
+    padding: 10px 18px !important;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 999px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .auth-buttons {
+    min-width: 96px;
+  }
+
+  .header .btn-getstarted,
+  .header .btn-getstarted:focus {
+    min-height: 40px;
+    padding: 9px 16px !important;
+    font-size: 12px;
+  }
+}
