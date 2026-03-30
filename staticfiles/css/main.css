@@ -1,5 +1,11 @@
 /**
-* Te
+* Template Name: Orbit
+* Template URL: https://bootstrapmade.com/orbit-bootstrap-template/
+* Updated: Jan 13 2026 with Bootstrap v5.3.8
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
 .showcase-notice {
   position: fixed;
   inset: 0;
@@ -8,7 +14,8 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgba(9, 4, 18, 0.42);
+  background: rgba(5, 15, 26, 0.5);
+  backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -23,81 +30,81 @@
 
 .showcase-notice__panel {
   position: relative;
-  width: min(100%, 520px);
-  padding: 28px 24px 24px;
-  border-radius: 24px;
+  width: min(100%, 560px);
+  padding: 34px 28px 28px;
+  border-radius: 28px;
   text-align: center;
-  background: linear-gradient(145deg, rgba(14, 45, 71, 0.96), rgba(24, 93, 135, 0.92));
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 24px 60px rgba(8, 18, 28, 0.34);
+  background: linear-gradient(145deg, rgba(11, 31, 51, 0.98), rgba(18, 78, 120, 0.94));
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  box-shadow: 0 28px 80px rgba(6, 18, 31, 0.42);
   color: #ffffff;
 }
 
 .showcase-notice__close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 36px;
-  height: 36px;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
   border: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1;
 }
 
 .showcase-notice__icon {
-  width: 68px;
-  height: 68px;
-  margin: 0 auto 18px;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 22px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
-  color: #ffe28a;
-  font-size: 1.8rem;
+  background: linear-gradient(135deg, rgba(125, 211, 252, 0.24), rgba(34, 211, 238, 0.14));
+  color: #fef08a;
+  font-size: 2rem;
 }
 
 .showcase-notice__message {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.85;
-  color: rgba(255, 255, 255, 0.94);
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 600;
 }
 
 .showcase-notice__action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  min-width: 172px;
-  padding: 13px 24px;
+  margin-top: 24px;
+  min-width: 190px;
+  padding: 14px 28px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #1fb8ff, #0f766e);
-  color: #fff;
-  font-weight: 700;
-  box-shadow: 0 14px 30px rgba(15, 118, 110, 0.28);
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #f8fafc;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow: 0 16px 36px rgba(14, 165, 233, 0.34);
 }
 
 .showcase-notice__action:hover {
-  color: #fff;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
 @media (max-width: 575.98px) {
   .showcase-notice__panel {
-    padding: 24px 18px 20px;
-    border-radius: 22px;
+    padding: 28px 18px 22px;
+    border-radius: 24px;
+  }
+
+  .showcase-notice__message {
+    font-size: 1rem;
   }
 }
-mplate Name: Orbit
-* Template URL: https://bootstrapmade.com/orbit-bootstrap-template/
-* Updated: Jan 13 2026 with Bootstrap v5.3.8
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 /*--------------------------------------------------------------
 # Font & Color Variables

@@ -1,3 +1,4 @@
+﻿
 (function() {
  "use strict";
  
@@ -187,22 +188,26 @@
  function initStaticShowcaseMode() {
  const pageBody = document.body;
  if (!pageBody || pageBody.dataset.staticShowcaseMode !== 'true') return;
- const contactUrl = pageBody.dataset.staticShowcaseContactUrl || '';
  const isArabic = document.documentElement.lang === 'ar';
- const message = isArabic ? pageBody.dataset.staticShowcaseMessageAr : pageBody.dataset.staticShowcaseMessageEn;
- const buttonLabel = isArabic ? pageBody.dataset.staticShowcaseButtonAr : pageBody.dataset.staticShowcaseButtonEn;
+ const contactUrl = pageBody.dataset.staticShowcaseContactUrl || 'https://mostaql.com/u/I_am_Sura';
+ const message = isArabic
+ ? (pageBody.dataset.staticShowcaseMessageAr || '\u0647\u0630\u0627 \u0627\u0644\u0645\u0648\u0642\u0639 \u0646\u0633\u062e\u0629 \u0639\u0631\u0636 \u062b\u0627\u0628\u062a\u0629. \u064a\u0631\u062c\u0649 \u0627\u0644\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u064a \u0639\u0628\u0631 \u062d\u0633\u0627\u0628\u064a \u0639\u0644\u0649 \u0645\u0633\u062a\u0642\u0644 \u0644\u0628\u062f\u0621 \u0645\u0634\u0631\u0648\u0639\u0643.')
+ : (pageBody.dataset.staticShowcaseMessageEn || 'This is a static showcase. Please contact me through my Mostaql account to start your project.');
+ const buttonLabel = isArabic
+ ? (pageBody.dataset.staticShowcaseButtonAr || '\u0641\u062a\u062d \u0645\u0633\u062a\u0642\u0644')
+ : (pageBody.dataset.staticShowcaseButtonEn || 'Open Mostaql');
+ const closeLabel = isArabic ? '\u0625\u063a\u0644\u0627\u0642' : 'Close';
  const contactTriggers = document.querySelectorAll('.showcase-contact-trigger');
- let noticeTimeoutId = null;
  if (!contactTriggers.length) return;
  const notice = document.createElement('div');
  notice.className = 'showcase-notice';
  notice.setAttribute('aria-live', 'polite');
  notice.innerHTML = `
  <div class="showcase-notice__panel">
- <button type="button" class="showcase-notice__close" aria-label="${isArabic ? 'إغلاق' : 'Close'}">&times;</button>
+ <button type="button" class="showcase-notice__close" aria-label="${closeLabel}">&times;</button>
  <div class="showcase-notice__icon"><i class="bi bi-megaphone-fill"></i></div>
  <p class="showcase-notice__message">${message}</p>
- ${contactUrl ? `<a class="showcase-notice__action" href="${contactUrl}">${buttonLabel}</a>` : ''}
+ <a class="showcase-notice__action" href="${contactUrl}" target="_blank" rel="noopener noreferrer">${buttonLabel}</a>
  </div>
  `;
  document.body.appendChild(notice);
@@ -211,12 +216,15 @@
  }
  function showNotice() {
  notice.classList.add('is-visible');
- window.clearTimeout(noticeTimeoutId);
- noticeTimeoutId = window.setTimeout(hideNotice, 5500);
  }
  notice.querySelector('.showcase-notice__close')?.addEventListener('click', hideNotice);
  notice.addEventListener('click', (event) => {
  if (event.target === notice) {
+ hideNotice();
+ }
+ });
+ document.addEventListener('keydown', (event) => {
+ if (event.key === 'Escape') {
  hideNotice();
  }
  });
