@@ -209,7 +209,7 @@
               <div class="text">
                 <span>{% trans "Need Help?" %}</span>
                 {% if static_export %}
-                <a href="https://mostaql.com/u/I_am_Sura" class="showcase-contact-trigger">Mostaql</a>
+                <a href="#" class="showcase-contact-trigger">{% if CURRENT_LANGUAGE == "ar" %}مستقل{% else %}Mostaql{% endif %}</a>
                 {% else %}
                 <a href="mailto:support@mahara.com">support@mahara.com</a>
                 {% endif %}
