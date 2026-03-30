@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<section class="section" style="padding-top: 120px;">
+  <div class="container" data-aos="fade-up">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="p-4 p-lg-5" style="border:1px solid var(--surface-border);border-radius:20px;background:var(--surface-color);">
+          <span class="section-subtitle">{{ page_kicker }}</span>
+          <h1 class="mt-2 mb-3">{{ page_heading }}</h1>
+          <p class="mb-4" style="color:var(--default-color);">{{ page_intro }}</p>
+
+          <div style="line-height:1.9;">
+            {{ page_content|safe }}
+          </div>
+
+          <div class="mt-4 pt-3" style="border-top:1px solid var(--surface-border);">
+            <a href="{{ page_urls.home }}" class="btn btn-primary">
+              {% trans "Return Home" %}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

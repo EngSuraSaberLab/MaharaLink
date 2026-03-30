@@ -94,7 +94,16 @@
 
 </head>
 
-<body class="{% block body_class %}index-page{% endblock %} {% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+<body
+  class="{% block body_class %}index-page{% endblock %} {% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}"
+  {% if static_export %}
+  data-static-showcase-mode="true"
+  data-static-showcase-base-path="{{ static_base_path }}"
+  data-static-showcase-message-en="This is a static showcase of MaharaLink. Interactive platform features are available in the full Django version."
+  data-static-showcase-message-ar="هذه نسخة عرض ثابتة من MaharaLink. الميزات التفاعلية الكاملة متاحة في نسخة Django الأصلية."
+  data-static-showcase-button-en="Explore Courses"
+  data-static-showcase-button-ar="استكشف الدورات"
+  {% endif %}>
 
   {% include "partials/header.html" %}
 

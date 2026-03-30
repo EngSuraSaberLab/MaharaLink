@@ -84,7 +84,7 @@
 
                 <div class="d-flex flex-wrap gap-2 mb-2">
                   {% if post.category %}
-                    <a href="?category={{ post.category.slug }}" class="badge bg-primary text-decoration-none">
+                    <a href="{% if static_export %}{{ page_urls.blog }}{% else %}?category={{ post.category.slug }}{% endif %}" class="badge bg-primary text-decoration-none">
                       {{ post.category.name }}
                     </a>
                   {% else %}
@@ -100,7 +100,7 @@
                 </div>
 
                 <h3 class="mb-2" style="font-size:22px;">
-                  <a href="{% url 'blog:blogDetail' post.slug %}" style="text-decoration:none;color:var(--heading-color);">
+                  <a href="{% if static_export %}{{ post.static_url }}{% else %}{% url 'blog:blogDetail' post.slug %}{% endif %}" style="text-decoration:none;color:var(--heading-color);">
                     {{ post.title }}
                   </a>
                 </h3>
@@ -117,7 +117,7 @@
                   {{ post.short_description }}
                 </p>
 
-                <a href="{% url 'blog:blogDetail' post.slug %}" class="btn btn-outline-primary btn-sm">
+                <a href="{% if static_export %}{{ post.static_url }}{% else %}{% url 'blog:blogDetail' post.slug %}{% endif %}" class="btn btn-outline-primary btn-sm">
                   {% trans "Read More" %}
                 </a>
 
@@ -150,14 +150,14 @@
 
           <ul class="list-unstyled d-grid gap-2 mb-0">
             <li>
-              <a href="{% url 'blog:blogPage' %}"
+              <a href="{% if static_export %}{{ page_urls.blog }}{% else %}{% url 'blog:blogPage' %}{% endif %}"
                  style="text-decoration:none;color:{% if not selected_category %}var(--accent-color){% else %}var(--default-color){% endif %};font-weight:{% if not selected_category %}700{% else %}500{% endif %};">
                 <i class="bi bi-grid"></i> {% trans "All Categories" %}
               </a>
             </li>
             {% for category in categories %}
               <li>
-                <a href="?category={{ category.slug }}"
+                <a href="{% if static_export %}{{ page_urls.blog }}{% else %}?category={{ category.slug }}{% endif %}"
                    style="text-decoration:none;color:{% if selected_category and selected_category.slug == category.slug %}var(--accent-color){% else %}var(--default-color){% endif %};font-weight:{% if selected_category and selected_category.slug == category.slug %}700{% else %}500{% endif %};display:flex;justify-content:space-between;gap:12px;">
                   <span><i class="bi bi-tag"></i> {{ category.name }}</span>
                   <span>{{ category.published_posts_count }}</span>
@@ -187,7 +187,7 @@
               <i class="bi bi-journal-text" style="font-size:22px;color:var(--primary-color);"></i>
 
               <div>
-                <a href="{% url 'blog:blogDetail' post.slug %}" style="text-decoration:none;font-weight:600;color:var(--heading-color);">
+                <a href="{% if static_export %}{{ post.static_url }}{% else %}{% url 'blog:blogDetail' post.slug %}{% endif %}" style="text-decoration:none;font-weight:600;color:var(--heading-color);">
                   {{ post.title }}
                 </a>
 

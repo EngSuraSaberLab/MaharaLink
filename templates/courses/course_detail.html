@@ -13,12 +13,12 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="{% url 'homePage' %}">
+            <a href="{% if static_export %}{{ page_urls.home }}{% else %}{% url 'homePage' %}{% endif %}">
               <i class="bi bi-house"></i> {% trans "Home" %}
             </a>
           </li>
           <li class="breadcrumb-item">
-            <a href="{% url 'homePage' %}#courses">{% trans "Courses" %}</a>
+            <a href="{% if static_export %}{{ page_urls.home }}#courses{% else %}{% url 'homePage' %}#courses{% endif %}">{% trans "Courses" %}</a>
           </li>
           <li class="breadcrumb-item active current">{{ course.title }}</li>
         </ol>
@@ -64,7 +64,7 @@
           <div class="key-features" data-aos="fade-up" data-aos-delay="300">
             <h3>{% trans "Course Content" %}</h3>
 
-            {% if user_enrolled %}
+            {% if user_enrolled and not static_export %}
               <div class="alert alert-success" role="alert">
                 <i class="bi bi-check-circle-fill me-2"></i>
                 {% trans "You are enrolled in this course and can access its content." %}
@@ -84,6 +84,11 @@
                 </div>
               {% endif %}
 
+            {% elif static_export %}
+              <div class="alert alert-info" role="alert">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                {% trans "This static showcase includes the course overview only. Full lessons and protected videos are available in the Django version." %}
+              </div>
             {% else %}
               <div class="alert alert-warning" role="alert">
                 <i class="bi bi-lock-fill me-2"></i>
@@ -96,7 +101,7 @@
           <div id="comments-section" class="service-overview mt-5" data-aos="fade-up" data-aos-delay="400">
             <h3>{% trans "Comments" %}</h3>
 
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and not static_export %}
               <form method="post" action="{% url 'course_detail' course.slug %}#comments-section" class="mb-4">
                 {% csrf_token %}
                 <div class="mb-3">
@@ -106,6 +111,11 @@
                   {% trans "Post Comment" %}
                 </button>
               </form>
+            {% elif static_export %}
+              <div class="alert alert-info">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                {% trans "Comments are read-only in the static GitHub Pages version." %}
+              </div>
             {% else %}
               <div class="alert alert-warning">
                 <i class="bi bi-lock-fill me-2"></i>
@@ -124,7 +134,7 @@
 
                     <p class="mb-2">{{ comment.content }}</p>
 
-                    {% if user.is_authenticated %}
+                    {% if user.is_authenticated and not static_export %}
                       <button
                         type="button"
                         class="btn btn-sm btn-outline-primary mb-3"
@@ -134,7 +144,7 @@
                     {% endif %}
 
                     <!-- Reply Form -->
-                    {% if user.is_authenticated %}
+                    {% if user.is_authenticated and not static_export %}
                       <div id="reply-form-{{ comment.id }}" style="display:none;" class="mb-3">
                         <form method="post" action="{% url 'course_detail' course.slug %}#comments-section">
                           {% csrf_token %}
@@ -223,8 +233,10 @@
                 <a href="#">
                   <i class="bi bi-shield-lock"></i>
                   <span>
-                    {% if user_enrolled %}
+                    {% if user_enrolled and not static_export %}
                       {% trans "Access Granted" %}
+                    {% elif static_export %}
+                      {% trans "Static Preview" %}
                     {% else %}
                       {% trans "Locked Until Subscription" %}
                     {% endif %}
@@ -238,15 +250,19 @@
           <div class="sidebar-widget stats-widget" data-aos="fade-up" data-aos-delay="300">
             <div class="stat-item">
               <div class="stat-number">
-                {% if user_enrolled %}
+                {% if user_enrolled and not static_export %}
                   <i class="bi bi-unlock-fill"></i>
+                {% elif static_export %}
+                  <i class="bi bi-eye-fill"></i>
                 {% else %}
                   <i class="bi bi-lock-fill"></i>
                 {% endif %}
               </div>
               <p>
-                {% if user_enrolled %}
+                {% if user_enrolled and not static_export %}
                   {% trans "You already have access to this course" %}
+                {% elif static_export %}
+                  {% trans "This page is a static preview prepared for GitHub Pages." %}
                 {% else %}
                   {% trans "Subscribe now to unlock this course" %}
                 {% endif %}
@@ -264,9 +280,13 @@
               <h3>{{ course.title }}</h3>
               <p>{{ course.short_description }}</p>
 
-              {% if user_enrolled %}
+              {% if user_enrolled and not static_export %}
                 <a href="#course-video-player" class="cta-btn" onclick="var v=document.getElementById('course-video-player'); if(v){v.play(); v.scrollIntoView({behavior:'smooth', block:'center'});} return false;">
                   {% trans "Start Learning" %} <i class="bi bi-arrow-right"></i>
+                </a>
+              {% elif static_export %}
+                <a href="{{ page_urls.home }}#courses" class="cta-btn">
+                  {% trans "Explore More Courses" %} <i class="bi bi-arrow-right"></i>
                 </a>
               {% else %}
                 <a href="{% url 'create_checkout_session' course.slug %}" class="cta-btn">
@@ -286,6 +306,7 @@
 
 </main>
 
+{% if not static_export %}
 <script>
   function toggleReplyForm(commentId) {
     const form = document.getElementById('reply-form-' + commentId);
@@ -296,5 +317,6 @@
     }
   }
 </script>
+{% endif %}
 
 {% endblock %}

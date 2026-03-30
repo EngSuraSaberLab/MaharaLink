@@ -7,20 +7,22 @@
   <div class="container position-relative d-flex align-items-center justify-content-between">
 
     <!-- Logo -->
-    <a href="{% url 'homePage' %}" class="logo d-flex align-items-center">
+    <a href="{% if static_export %}{{ page_urls.home }}{% else %}{% url 'homePage' %}{% endif %}" class="logo d-flex align-items-center">
       <h1 class="sitename mb-0">
         {% if CURRENT_LANGUAGE == "ar" %}منصة مهارة{% else %}Mahara Platform{% endif %}
       </h1>
       <span>.</span>
     </a>
 
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated or static_export %}
       <!-- Navigation -->
       <nav id="navmenu" class="navmenu">
         <ul>
           <li>
-            <a href="{% url 'homePage' %}#hero"
-               {% if request.resolver_match.url_name == 'homePage' and request.resolver_match.app_name != 'blog' %}
+            <a href="{% if static_export %}{{ page_urls.home }}#hero{% else %}{% url 'homePage' %}#hero{% endif %}"
+               {% if static_export and current_page == 'home' %}
+               class="active"
+               {% elif request.resolver_match.url_name == 'homePage' and request.resolver_match.app_name != 'blog' %}
                class="active"
                {% endif %}>
               {% trans "Home" %}
@@ -28,26 +30,27 @@
           </li>
 
           <li>
-            <a href="{% url 'homePage' %}#courses">
+            <a href="{% if static_export %}{{ page_urls.home }}#courses{% else %}{% url 'homePage' %}#courses{% endif %}"
+               {% if static_export and current_page == 'courses' %}class="active"{% endif %}>
               {% trans "All Courses" %}
             </a>
           </li>
 
-          <li>
-            <a href="{% url 'homePage' %}#my-courses">
+          <li{% if static_export %} class="d-none"{% endif %}>
+            <a href="{% if static_export %}{{ page_urls.home }}#my-courses{% else %}{% url 'homePage' %}#my-courses{% endif %}">
               {% trans "My Courses" %}
             </a>
           </li>
 
           <li>
-            <a href="{% url 'blog:blogPage' %}"
-               {% if request.resolver_match.app_name == 'blog' %}class="active"{% endif %}>
+            <a href="{% if static_export %}{{ page_urls.blog }}{% else %}{% url 'blog:blogPage' %}{% endif %}"
+               {% if static_export and current_page == 'blog' %}class="active"{% elif request.resolver_match.app_name == 'blog' %}class="active"{% endif %}>
               {% trans "Blog" %}
             </a>
           </li>
 
           <li>
-            <a href="{% url 'homePage' %}#about">
+            <a href="{% if static_export %}{{ page_urls.home }}#about{% else %}{% url 'homePage' %}#about{% endif %}">
               {% trans "About Us" %}
             </a>
           </li>
@@ -68,6 +71,11 @@
 
         <ul class="dropdown-menu">
           <li>
+            {% if static_export %}
+            <a href="{{ page_urls.language_ar }}" class="dropdown-item {% if CURRENT_LANGUAGE == 'ar' %}active{% endif %}">
+              العربية
+            </a>
+            {% else %}
             <form action="{% url 'set_language' %}" method="post" class="m-0">
               {% csrf_token %}
               <input type="hidden" name="next" value="{{ request.get_full_path }}">
@@ -76,9 +84,15 @@
                 العربية
               </button>
             </form>
+            {% endif %}
           </li>
 
           <li>
+            {% if static_export %}
+            <a href="{{ page_urls.language_en }}" class="dropdown-item {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}">
+              English
+            </a>
+            {% else %}
             <form action="{% url 'set_language' %}" method="post" class="m-0">
               {% csrf_token %}
               <input type="hidden" name="next" value="{{ request.get_full_path }}">
@@ -87,11 +101,12 @@
                 English
               </button>
             </form>
+            {% endif %}
           </li>
         </ul>
       </div>
 
-      {% if user.is_authenticated %}
+      {% if user.is_authenticated and not static_export %}
         <!-- Profile -->
         <div class="dropdown ms-2">
           <a href="#" class="d-flex align-items-center profile-icon" data-bs-toggle="dropdown" aria-expanded="false">
@@ -124,15 +139,25 @@
           </ul>
         </div>
       {% else %}
-        <!-- Login / Signup -->
+        <!-- Showcase actions / Login / Signup -->
         <div class="auth-buttons d-flex align-items-center">
-          <a class="btn-getstarted" href="{% url 'login' %}">
-            {% trans "Login" %}
-          </a>
+          {% if static_export %}
+            <a class="btn-getstarted" href="{{ page_urls.home }}#courses">
+              {% trans "Explore Courses" %}
+            </a>
 
-          <a class="btn-getstarted ms-2" href="{% url 'signup' %}">
-            {% trans "Sign up" %}
-          </a>
+            <a class="btn-getstarted ms-2" href="mailto:support@mahara.com">
+              {% trans "Contact" %}
+            </a>
+          {% else %}
+            <a class="btn-getstarted" href="{% url 'login' %}">
+              {% trans "Login" %}
+            </a>
+
+            <a class="btn-getstarted ms-2" href="{% url 'signup' %}">
+              {% trans "Sign up" %}
+            </a>
+          {% endif %}
         </div>
       {% endif %}
 

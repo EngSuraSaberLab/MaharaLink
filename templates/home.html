@@ -259,7 +259,7 @@
 
           <div class="d-flex justify-content-between align-items-center mt-3">
             <span><strong>{% trans "Price:" %}</strong> {{ course.price }}</span>
-            <a href="{% url 'course_detail' course.slug %}" class="service-link">
+            <a href="{% if static_export %}{{ course.static_url }}{% else %}{% url 'course_detail' course.slug %}{% endif %}" class="service-link">
               <span>{% trans "View Course" %}</span>
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -280,7 +280,7 @@
   </div>
 </section><!-- /Services Section -->
 
-{% if user.is_authenticated %}
+{% if user.is_authenticated and not static_export %}
 <section id="my-courses" class="team section">
 
   <div class="container section-title" data-aos="fade-up">

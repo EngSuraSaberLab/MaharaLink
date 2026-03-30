@@ -35,7 +35,7 @@
 
     <!-- Back Button -->
     <div class="mb-3">
-      <a href="{% url 'blog:blogPage' %}" class="btn btn-outline-primary btn-sm">
+      <a href="{% if static_export %}{{ page_urls.blog }}{% else %}{% url 'blog:blogPage' %}{% endif %}" class="btn btn-outline-primary btn-sm">
         <i class="bi bi-arrow-left"></i> {% trans "Back to Blog" %}
       </a>
     </div>
@@ -65,7 +65,7 @@
             <!-- Tags -->
             <div class="d-flex flex-wrap gap-2 mb-3">
               {% if post.category %}
-                <a href="{% url 'blog:blogPage' %}?category={{ post.category.slug }}" class="badge bg-primary text-decoration-none">
+                <a href="{% if static_export %}{{ page_urls.blog }}{% else %}{% url 'blog:blogPage' %}?category={{ post.category.slug }}{% endif %}" class="badge bg-primary text-decoration-none">
                   {{ post.category.name }}
                 </a>
               {% else %}
@@ -116,7 +116,7 @@
             {% trans "Comments" %} ({{ comments_count }})
           </h4>
 
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated and not static_export %}
             <form method="post" action="{% url 'blog:blogDetail' post.slug %}#comments-section" class="mb-4">
               {% csrf_token %}
               <div class="mb-3">
@@ -126,6 +126,11 @@
                 {% trans "Post Comment" %}
               </button>
             </form>
+          {% elif static_export %}
+            <div class="alert alert-info">
+              <i class="bi bi-info-circle-fill me-2"></i>
+              {% trans "Comments are read-only in the static GitHub Pages version." %}
+            </div>
           {% else %}
             <div class="alert alert-warning">
               <i class="bi bi-lock-fill me-2"></i>
@@ -144,7 +149,7 @@
 
                   <p class="mb-2">{{ comment.content }}</p>
 
-                  {% if user.is_authenticated %}
+                  {% if user.is_authenticated and not static_export %}
                     <button
                       type="button"
                       class="btn btn-sm btn-outline-primary mb-3"
@@ -154,7 +159,7 @@
                   {% endif %}
 
                   <!-- Reply Form -->
-                  {% if user.is_authenticated %}
+                  {% if user.is_authenticated and not static_export %}
                     <div id="reply-form-{{ comment.id }}" style="display:none;" class="mb-3">
                       <form method="post" action="{% url 'blog:blogDetail' post.slug %}#comments-section">
                         {% csrf_token %}
@@ -244,7 +249,7 @@
           <ul class="list-unstyled d-grid gap-2 mb-0">
             {% for category in categories %}
               <li>
-                <a href="{% url 'blog:blogPage' %}?category={{ category.slug }}"
+                <a href="{% if static_export %}{{ page_urls.blog }}{% else %}{% url 'blog:blogPage' %}?category={{ category.slug }}{% endif %}"
                    style="text-decoration:none;color:{% if post.category and post.category.slug == category.slug %}var(--accent-color){% else %}var(--default-color){% endif %};font-weight:{% if post.category and post.category.slug == category.slug %}700{% else %}500{% endif %};display:flex;justify-content:space-between;gap:12px;">
                   <span><i class="bi bi-tag"></i> {{ category.name }}</span>
                   <span>{{ category.published_posts_count }}</span>
@@ -269,6 +274,7 @@
 
 </div>
 
+{% if not static_export %}
 <script>
   function toggleReplyForm(commentId) {
     const form = document.getElementById('reply-form-' + commentId);
@@ -279,5 +285,6 @@
     }
   }
 </script>
+{% endif %}
 
 {% endblock %}

@@ -37,7 +37,7 @@
           </p>
 
           <div class="action-buttons">
-            <a href="{% url 'homePage' %}" class="btn-home">
+            <a href="{% if static_export %}{{ page_urls.home }}{% else %}{% url 'homePage' %}{% endif %}" class="btn-home">
               <i class="bi bi-arrow-left"></i>
               {% trans "Return Home" %}
             </a>

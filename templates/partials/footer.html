@@ -10,9 +10,9 @@
       </div>
       <div class="col-md-6 order-1 order-md-2">
         <div class="legal-links">
-          <a href="tos.html">{% trans "Terms of Service" %}</a>
-          <a href="privacy.html">{% trans "Privacy Policy" %}</a>
-          <a href="privacy.html">{% trans "Cookies" %}</a>
+          <a href="{% if static_export %}{{ page_urls.terms }}{% else %}tos.html{% endif %}">{% trans "Terms of Service" %}</a>
+          <a href="{% if static_export %}{{ page_urls.privacy }}{% else %}privacy.html{% endif %}">{% trans "Privacy Policy" %}</a>
+          <a href="{% if static_export %}{{ page_urls.cookies }}{% else %}privacy.html{% endif %}">{% trans "Cookies" %}</a>
         </div>
       </div>
     </div>
