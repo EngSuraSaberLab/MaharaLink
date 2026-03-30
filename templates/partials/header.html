@@ -1,4 +1,4 @@
-﻿{% load static %}
+{% load static %}
 {% load i18n %}
 {% get_current_language as CURRENT_LANGUAGE %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
@@ -9,7 +9,7 @@
     <!-- Logo -->
     <a href="{% if static_export %}{{ page_urls.home }}{% else %}{% url 'homePage' %}{% endif %}" class="logo d-flex align-items-center">
       <h1 class="sitename mb-0">
-        {% if CURRENT_LANGUAGE == "ar" %}منصة مهارة{% else %}Mahara Platform{% endif %}
+        {% if CURRENT_LANGUAGE == "ar" %}???? ?????{% else %}Mahara Platform{% endif %}
       </h1>
       <span>.</span>
     </a>
@@ -73,7 +73,7 @@
           <li>
             {% if static_export %}
             <a href="{{ page_urls.language_ar }}" class="dropdown-item {% if CURRENT_LANGUAGE == 'ar' %}active{% endif %}">
-              العربية
+              ???????
             </a>
             {% else %}
             <form action="{% url 'set_language' %}" method="post" class="m-0">
@@ -81,7 +81,7 @@
               <input type="hidden" name="next" value="{{ request.get_full_path }}">
               <input type="hidden" name="language" value="ar">
               <button type="submit" class="dropdown-item {% if CURRENT_LANGUAGE == 'ar' %}active{% endif %}">
-                العربية
+                ???????
               </button>
             </form>
             {% endif %}
@@ -146,7 +146,7 @@
               {% trans "Explore Courses" %}
             </a>
 
-            <a class="btn-getstarted ms-2" href="mailto:support@mahara.com">
+            <a class="btn-getstarted ms-2 showcase-contact-trigger" href="mailto:support@mahara.com">
               {% trans "Contact" %}
             </a>
           {% else %}
@@ -164,3 +164,4 @@
     </div>
   </div>
 </header>
+

@@ -183,4 +183,49 @@
  window.addEventListener('hashchange', setActiveNavByLocation);
  window.addEventListener('load', navmenuScrollspy);
  document.addEventListener('scroll', navmenuScrollspy);
+ 
+ function initStaticShowcaseMode() {
+ const pageBody = document.body;
+ if (!pageBody || pageBody.dataset.staticShowcaseMode !== 'true') return;
+ const contactUrl = pageBody.dataset.staticShowcaseContactUrl || '';
+ const isArabic = document.documentElement.lang === 'ar';
+ const message = isArabic ? pageBody.dataset.staticShowcaseMessageAr : pageBody.dataset.staticShowcaseMessageEn;
+ const buttonLabel = isArabic ? pageBody.dataset.staticShowcaseButtonAr : pageBody.dataset.staticShowcaseButtonEn;
+ const contactTriggers = document.querySelectorAll('.showcase-contact-trigger');
+ let noticeTimeoutId = null;
+ if (!contactTriggers.length) return;
+ const notice = document.createElement('div');
+ notice.className = 'showcase-notice';
+ notice.setAttribute('aria-live', 'polite');
+ notice.innerHTML = `
+ <div class="showcase-notice__panel">
+ <button type="button" class="showcase-notice__close" aria-label="${isArabic ? 'إغلاق' : 'Close'}">&times;</button>
+ <div class="showcase-notice__icon"><i class="bi bi-megaphone-fill"></i></div>
+ <p class="showcase-notice__message">${message}</p>
+ ${contactUrl ? `<a class="showcase-notice__action" href="${contactUrl}">${buttonLabel}</a>` : ''}
+ </div>
+ `;
+ document.body.appendChild(notice);
+ function hideNotice() {
+ notice.classList.remove('is-visible');
+ }
+ function showNotice() {
+ notice.classList.add('is-visible');
+ window.clearTimeout(noticeTimeoutId);
+ noticeTimeoutId = window.setTimeout(hideNotice, 5500);
+ }
+ notice.querySelector('.showcase-notice__close')?.addEventListener('click', hideNotice);
+ notice.addEventListener('click', (event) => {
+ if (event.target === notice) {
+ hideNotice();
+ }
+ });
+ contactTriggers.forEach((link) => {
+ link.addEventListener('click', (event) => {
+ event.preventDefault();
+ showNotice();
+ });
+ });
+ }
+ window.addEventListener('load', initStaticShowcaseMode);
 })();

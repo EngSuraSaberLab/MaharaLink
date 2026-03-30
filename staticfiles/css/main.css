@@ -1,5 +1,98 @@
 /**
-* Template Name: Orbit
+* Te
+.showcase-notice {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(9, 4, 18, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.24s ease, visibility 0.24s ease;
+}
+
+.showcase-notice.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.showcase-notice__panel {
+  position: relative;
+  width: min(100%, 520px);
+  padding: 28px 24px 24px;
+  border-radius: 24px;
+  text-align: center;
+  background: linear-gradient(145deg, rgba(14, 45, 71, 0.96), rgba(24, 93, 135, 0.92));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 24px 60px rgba(8, 18, 28, 0.34);
+  color: #ffffff;
+}
+
+.showcase-notice__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.showcase-notice__icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  color: #ffe28a;
+  font-size: 1.8rem;
+}
+
+.showcase-notice__message {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.showcase-notice__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  min-width: 172px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1fb8ff, #0f766e);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 14px 30px rgba(15, 118, 110, 0.28);
+}
+
+.showcase-notice__action:hover {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 575.98px) {
+  .showcase-notice__panel {
+    padding: 24px 18px 20px;
+    border-radius: 22px;
+  }
+}
+mplate Name: Orbit
 * Template URL: https://bootstrapmade.com/orbit-bootstrap-template/
 * Updated: Jan 13 2026 with Bootstrap v5.3.8
 * Author: BootstrapMade.com
@@ -6518,3 +6611,5 @@ html[dir="rtl"] .me-2 {
 .border-primary {
   border-color: var(--accent-color) !important;
 }
+
+
