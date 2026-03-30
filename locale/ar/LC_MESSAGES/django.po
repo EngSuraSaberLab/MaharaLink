@@ -1,0 +1,580 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-12 17:53+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\project\settings.py:143
+msgid "Arabic"
+msgstr "العربية"
+
+#: .\project\settings.py:144
+msgid "English"
+msgstr "الانجليزية"
+
+#: .\templates\404.html:5
+msgid "404 - Page Not Found"
+msgstr "404 - الصفحة غير موجودة"
+
+#: .\templates\404.html:33
+msgid "Oops!"
+msgstr "عذرا"
+
+#: .\templates\404.html:34
+msgid "Page Not Found"
+msgstr "الصفحة غير موجودة"
+
+#: .\templates\404.html:36
+msgid "The page you are looking for does not exist or has been moved."
+msgstr "الصفحة التي تبحث عنها غير موجودة او تم نقلها."
+
+#: .\templates\404.html:42
+msgid "Return Home"
+msgstr "العودة الى الرئيسية"
+
+#: .\templates\blog\blog_detail.html:39
+msgid "Back to Blog"
+msgstr "العودة الى المدونة"
+
+#: .\templates\blog\blog_detail.html:72 .\templates\blog\blog_list.html:5
+#: .\templates\blog\blog_list.html:91 .\templates\partials\header.html:45
+msgid "Blog"
+msgstr "المدونة"
+
+#: .\templates\blog\blog_detail.html:76 .\templates\blog\blog_detail.html:224
+#: .\templates\blog\blog_list.html:95
+msgid "Published"
+msgstr "منشور"
+
+#: .\templates\blog\blog_detail.html:78 .\templates\blog\blog_detail.html:226
+#: .\templates\blog\blog_list.html:97
+msgid "Draft"
+msgstr "مسودة"
+
+#: .\templates\blog\blog_detail.html:116 .\templates\blog\blog_detail.html:232
+#: .\templates\courses\course_detail.html:97
+#: .\templates\courses\course_detail.html:211
+msgid "Comments"
+msgstr "التعليقات"
+
+#: .\templates\blog\blog_detail.html:126
+#: .\templates\courses\course_detail.html:106
+msgid "Post Comment"
+msgstr "نشر التعليق"
+
+#: .\templates\blog\blog_detail.html:132
+#: .\templates\courses\course_detail.html:112
+msgid "You must log in first to write a comment."
+msgstr "يجب تسجيل الدخول اولا لكتابة تعليق."
+
+#: .\templates\blog\blog_detail.html:152
+#: .\templates\courses\course_detail.html:132
+msgid "Reply"
+msgstr "رد"
+
+#: .\templates\blog\blog_detail.html:168
+#: .\templates\courses\course_detail.html:148
+msgid "Post Reply"
+msgstr "نشر الرد"
+
+#: .\templates\blog\blog_detail.html:194
+#: .\templates\courses\course_detail.html:173
+msgid "No comments yet."
+msgstr "لا توجد تعليقات بعد."
+
+#: .\templates\blog\blog_detail.html:209
+msgid "Post Info"
+msgstr "معلومات المقال"
+
+#: .\templates\blog\blog_detail.html:242 .\templates\blog\blog_list.html:148
+msgid "Categories"
+msgstr "التصنيفات"
+
+#: .\templates\blog\blog_detail.html:256 .\templates\blog\blog_list.html:169
+msgid "No categories yet."
+msgstr "لا توجد تصنيفات بعد."
+
+#: .\templates\blog\blog_list.html:40
+msgid "Mahara Blog"
+msgstr "مدونة مهارة"
+
+#: .\templates\blog\blog_list.html:44
+msgid ""
+"\n"
+"          Tips, tutorials, and updates to help you learn faster and build better projects.\n"
+"          "
+msgstr ""
+"\n"
+"          نصائح ودروس وتحديثات لمساعدتك على التعلم بشكل اسرع وبناء مشاريع افضل.\n"
+"          "
+
+#: .\templates\blog\blog_list.html:121
+msgid "Read More"
+msgstr "اقرا المزيد"
+
+#: .\templates\blog\blog_list.html:130
+msgid "No blog posts yet."
+msgstr "لا توجد مقالات بعد."
+
+#: .\templates\blog\blog_list.html:132
+msgid "Published articles will appear here soon."
+msgstr "ستظهر المقالات المنشورة هنا قريبا."
+
+#: .\templates\blog\blog_list.html:155
+msgid "All Categories"
+msgstr "كل التصنيفات"
+
+#: .\templates\blog\blog_list.html:182
+msgid "Recent Posts"
+msgstr "احدث المقالات"
+
+#: .\templates\blog\blog_list.html:201
+msgid "No recent posts yet."
+msgstr "لا توجد مقالات حديثة بعد."
+
+#: .\templates\courses\course_detail.html:17 .\templates\home.html:5
+#: .\templates\partials\header.html:26
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\templates\courses\course_detail.html:21 .\templates\home.html:58
+msgid "Courses"
+msgstr "الدورات"
+
+#: .\templates\courses\course_detail.html:65
+msgid "Course Content"
+msgstr "محتوى الدورة"
+
+#: .\templates\courses\course_detail.html:70
+msgid "You are enrolled in this course and can access its content."
+msgstr "انت مشترك في هذه الدورة ويمكنك الوصول الى محتواها."
+
+#: .\templates\courses\course_detail.html:77
+msgid "Your browser does not support the video tag."
+msgstr "متصفحك لا يدعم عرض الفيديو."
+
+#: .\templates\courses\course_detail.html:83
+msgid "The course video has not been uploaded yet."
+msgstr "لم يتم رفع فيديو الدورة بعد."
+
+#: .\templates\courses\course_detail.html:90
+msgid "This course is locked. Subscribe first to access the content."
+msgstr "هذه الدورة مقفلة. اشترك اولا للوصول الى المحتوى."
+
+#: .\templates\courses\course_detail.html:185
+msgid "Course Info"
+msgstr "معلومات الدورة"
+
+#: .\templates\courses\course_detail.html:197
+#: .\templates\payments\payment_success.html:33
+msgid "Price"
+msgstr "السعر"
+
+#: .\templates\courses\course_detail.html:204 .\templates\home.html:68
+msgid "Students"
+msgstr "الطلاب"
+
+#: .\templates\courses\course_detail.html:227
+msgid "Access Granted"
+msgstr "تم منح الوصول"
+
+#: .\templates\courses\course_detail.html:229
+msgid "Locked Until Subscription"
+msgstr "مقفلة حتى الاشتراك"
+
+#: .\templates\courses\course_detail.html:249
+msgid "You already have access to this course"
+msgstr "لديك وصول بالفعل الى هذه الدورة"
+
+#: .\templates\courses\course_detail.html:251
+msgid "Subscribe now to unlock this course"
+msgstr "اشترك الان لفتح هذه الدورة"
+
+#: .\templates\courses\course_detail.html:269
+#: .\templates\payments\payment_success.html:43
+msgid "Start Learning"
+msgstr "ابدأ التعلم"
+
+#: .\templates\courses\course_detail.html:273
+msgid "Subscribe Now"
+msgstr "اشترك الان"
+
+#: .\templates\home.html:20
+msgid "ONLINE LEARNING PLATFORM"
+msgstr "منصة تعلم عبر الانترنت"
+
+#: .\templates\home.html:24
+msgid "Learn New Skills"
+msgstr "تعلم مهارات جديدة"
+
+#: .\templates\home.html:25
+msgid "& Build Your Future with Mahara."
+msgstr "وابن مستقبلك مع مهارة."
+
+#: .\templates\home.html:29
+msgid ""
+"\n"
+"            Mahara is an online learning platform that provides professional courses designed to help students develop practical skills and advance their careers.\n"
+"            "
+msgstr ""
+"\n"
+"            مهارة هي منصة تعليمية عبر الانترنت تقدم دورات احترافية مصممة لمساعدة الطلاب على تطوير مهاراتهم العملية والتقدم في مسيرتهم المهنية.\n"
+"            "
+
+#: .\templates\home.html:36
+msgid "Start Learning Now"
+msgstr "ابدأ التعلم الان"
+
+#: .\templates\home.html:42
+msgid "Watch Intro"
+msgstr "شاهد المقدمة"
+
+#: .\templates\home.html:78
+msgid "Instructors"
+msgstr "المدربون"
+
+#: .\templates\home.html:88
+msgid "Learning Access"
+msgstr "امكانية التعلم"
+
+#: .\templates\home.html:113
+msgid "Students learning together"
+msgstr "طلاب يتعلمون معا"
+
+#: .\templates\home.html:122
+msgid "Online learning on a laptop"
+msgstr "تعلم عبر الانترنت على حاسوب محمول"
+
+#: .\templates\home.html:130
+msgid "more than"
+msgstr "اكثر من"
+
+#: .\templates\home.html:137
+msgid "Happy Learners"
+msgstr "متعلمين سعداء"
+
+#: .\templates\home.html:137
+msgid "Joined"
+msgstr "انضموا"
+
+#: .\templates\home.html:148
+msgid "About Mahara"
+msgstr "عن مهارة"
+
+#: .\templates\home.html:150
+msgid "Empowering Learning for a Better Future"
+msgstr "تمكين التعلم من اجل مستقبل افضل"
+
+#: .\templates\home.html:153
+msgid ""
+"\n"
+"            Mahara is an online learning platform designed to help students develop practical skills and advance their careers.\n"
+"            Our mission is to make high-quality education accessible to everyone through expert-led courses focused on real-world learning.\n"
+"            "
+msgstr ""
+"\n"
+"            مهارة هي منصة تعليمية عبر الانترنت مصممة لمساعدة الطلاب على تطوير مهاراتهم العملية والتقدم في مسيرتهم المهنية.\n"
+"            رسالتنا هي جعل التعليم عالي الجودة متاحا للجميع من خلال دورات يقدمها خبراء وتركز على التعلم العملي الواقعي.\n"
+"            "
+
+#: .\templates\home.html:160
+msgid ""
+"\n"
+"            With Mahara, learners can explore a wide range of courses, improve their professional skills, and learn at their own pace—anytime, anywhere.\n"
+"            "
+msgstr ""
+"\n"
+"            مع مهارة، يمكن للمتعلمين استكشاف مجموعة واسعة من الدورات، وتطوير مهاراتهم المهنية، والتعلم بالوتيرة التي تناسبهم في اي وقت ومن اي مكان.\n"
+"            "
+
+#: .\templates\home.html:169 .\templates\home.html:199
+msgid "Expert Instructors"
+msgstr "مدربون خبراء"
+
+#: .\templates\home.html:173
+msgid "High Quality Courses"
+msgstr "دورات عالية الجودة"
+
+#: .\templates\home.html:177
+msgid "Flexible Learning"
+msgstr "تعلم مرن"
+
+#: .\templates\home.html:181
+msgid "Learn Anytime"
+msgstr "تعلم في اي وقت"
+
+#: .\templates\home.html:189
+msgid "Courses Available"
+msgstr "الدورات المتاحة"
+
+#: .\templates\home.html:194
+msgid "Students Enrolled"
+msgstr "الطلاب المسجلون"
+
+#: .\templates\home.html:210
+msgid "Need Help?"
+msgstr "تحتاج مساعدة؟"
+
+#: .\templates\home.html:227
+msgid "Explore Our Courses"
+msgstr "استكشف دوراتنا"
+
+#: .\templates\home.html:229
+msgid ""
+"\n"
+"      Discover professional courses designed to help you build practical skills and grow your career.\n"
+"      "
+msgstr ""
+"\n"
+"      اكتشف دورات احترافية مصممة لمساعدتك على بناء مهارات عملية وتطوير مسيرتك المهنية.\n"
+"      "
+
+#: .\templates\home.html:261
+msgid "Price:"
+msgstr "السعر:"
+
+#: .\templates\home.html:263
+msgid "View Course"
+msgstr "عرض الدورة"
+
+#: .\templates\home.html:273
+msgid "No courses available yet."
+msgstr "لا توجد دورات متاحة بعد."
+
+#: .\templates\home.html:274
+msgid "Please check back later for new courses."
+msgstr "يرجى العودة لاحقا للاطلاع على الدورات الجديدة."
+
+#: .\templates\home.html:287 .\templates\partials\header.html:38
+msgid "My Courses"
+msgstr "دوراتي"
+
+#: .\templates\home.html:325
+msgid "Enrolled"
+msgstr "مشترك"
+
+#: .\templates\home.html:341
+msgid "You’re not enrolled in any courses yet."
+msgstr "انت غير مشترك في اي دورة بعد."
+
+#: .\templates\home.html:342
+msgid "Browse our courses and start learning today."
+msgstr "تصفح دوراتنا وابدأ التعلم اليوم."
+
+#: .\templates\home.html:343
+msgid "Browse Courses"
+msgstr "تصفح الدورات"
+
+#: .\templates\partials\footer.html:8
+msgid "Copyright"
+msgstr "حقوق النشر"
+
+#: .\templates\partials\footer.html:8
+msgid "All Rights Reserved."
+msgstr "جميع الحقوق محفوظة."
+
+#: .\templates\partials\footer.html:13
+msgid "Terms of Service"
+msgstr "شروط الخدمة"
+
+#: .\templates\partials\footer.html:14
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: .\templates\partials\footer.html:15
+msgid "Cookies"
+msgstr "ملفات تعريف الارتباط"
+
+#: .\templates\partials\header.html:32
+msgid "All Courses"
+msgstr "كل الدورات"
+
+#: .\templates\partials\header.html:51
+msgid "About Us"
+msgstr "من نحن"
+
+#: .\templates\partials\header.html:111
+#: .\templates\registration\password_change_form.html:5
+#: .\templates\registration\password_change_form.html:18
+msgid "Change Password"
+msgstr "تغيير كلمة المرور"
+
+#: .\templates\partials\header.html:120
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\templates\partials\header.html:130 .\templates\registration\login.html:5
+#: .\templates\registration\login.html:129
+#: .\templates\registration\signup.html:147
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\templates\partials\header.html:134 .\templates\registration\login.html:137
+#: .\templates\registration\signup.html:5
+#: .\templates\registration\signup.html:140
+msgid "Sign up"
+msgstr "انشاء حساب"
+
+#: .\templates\payments\payment_success.html:4
+msgid "Payment Successful"
+msgstr "تم الدفع بنجاح"
+
+#: .\templates\payments\payment_success.html:21
+msgid "Payment Successful!"
+msgstr "تم الدفع بنجاح!"
+
+#: .\templates\payments\payment_success.html:25
+#, python-format
+msgid ""
+"\n"
+"              You have successfully enrolled in \"%(course_title)s\".\n"
+"              "
+msgstr ""
+"\n"
+"              لقد تم اشتراكك بنجاح في \"%(course_title)s\".\n"
+"              "
+
+#: .\templates\payments\payment_success.html:36
+msgid "Access"
+msgstr "الوصول"
+
+#: .\templates\payments\payment_success.html:36
+msgid "Unlocked"
+msgstr "مفتوح"
+
+#: .\templates\payments\payment_success.html:48
+msgid "Browse More Courses"
+msgstr "تصفح المزيد من الدورات"
+
+#: .\templates\registration\login.html:25
+msgid "Welcome Back"
+msgstr "اهلا بعودتك"
+
+#: .\templates\registration\login.html:29
+msgid "Login to continue your learning journey."
+msgstr "سجل الدخول لمتابعة رحلتك التعليمية."
+
+#: .\templates\registration\login.html:57
+#: .\templates\registration\signup.html:49
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: .\templates\registration\login.html:67
+msgid "Enter your username"
+msgstr "ادخل اسم المستخدم"
+
+#: .\templates\registration\login.html:83
+#: .\templates\registration\signup.html:75
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\templates\registration\login.html:93
+msgid "Enter your password"
+msgstr "ادخل كلمة المرور"
+
+#: .\templates\registration\login.html:97
+#: .\templates\registration\password_change_form.html:50
+#: .\templates\registration\password_change_form.html:77
+#: .\templates\registration\password_change_form.html:108
+#: .\templates\registration\signup.html:88
+#: .\templates\registration\signup.html:124
+msgid "Show password"
+msgstr "اظهار كلمة المرور"
+
+#: .\templates\registration\login.html:122
+msgid "Remember me"
+msgstr "تذكرني"
+
+#: .\templates\registration\login.html:134
+msgid "Don't have an account?"
+msgstr "ليس لديك حساب؟"
+
+#: .\templates\registration\password_change_done.html:4
+msgid "Password Changed"
+msgstr "تم تغيير كلمة المرور"
+
+#: .\templates\registration\password_change_done.html:13
+msgid "Password changed successfully"
+msgstr "تم تغيير كلمة المرور بنجاح"
+
+#: .\templates\registration\password_change_done.html:14
+msgid "Your account password has been updated."
+msgstr "تم تحديث كلمة مرور حسابك."
+
+#: .\templates\registration\password_change_done.html:15
+msgid "Back to Home"
+msgstr "العودة الى الرئيسية"
+
+#: .\templates\registration\password_change_form.html:21
+msgid "Update your account password securely."
+msgstr "قم بتحديث كلمة مرور حسابك بشكل امن."
+
+#: .\templates\registration\password_change_form.html:38
+msgid "Current password"
+msgstr "كلمة المرور الحالية"
+
+#: .\templates\registration\password_change_form.html:47
+msgid "Enter your current password"
+msgstr "ادخل كلمة المرور الحالية"
+
+#: .\templates\registration\password_change_form.html:65
+msgid "New password"
+msgstr "كلمة المرور الجديدة"
+
+#: .\templates\registration\password_change_form.html:74
+msgid "Enter your new password"
+msgstr "ادخل كلمة المرور الجديدة"
+
+#: .\templates\registration\password_change_form.html:96
+msgid "Confirm new password"
+msgstr "تاكيد كلمة المرور الجديدة"
+
+#: .\templates\registration\password_change_form.html:105
+msgid "Re-enter your new password"
+msgstr "اعد ادخال كلمة المرور الجديدة"
+
+#: .\templates\registration\password_change_form.html:122
+msgid "Update Password"
+msgstr "تحديث كلمة المرور"
+
+#: .\templates\registration\signup.html:25
+msgid "Create your account"
+msgstr "انشئ حسابك"
+
+#: .\templates\registration\signup.html:29
+msgid "Join Mahara and start learning today."
+msgstr "انضم الى مهارة وابدأ التعلم اليوم."
+
+#: .\templates\registration\signup.html:59
+msgid "Choose a username"
+msgstr "اختر اسم مستخدم"
+
+#: .\templates\registration\signup.html:85
+msgid "Create a password"
+msgstr "انشئ كلمة مرور"
+
+#: .\templates\registration\signup.html:111
+msgid "Confirm password"
+msgstr "تاكيد كلمة المرور"
+
+#: .\templates\registration\signup.html:121
+msgid "Re-enter your password"
+msgstr "اعد ادخال كلمة المرور"
+
+#: .\templates\registration\signup.html:145
+msgid "Already have an account?"
+msgstr "لديك حساب بالفعل؟"

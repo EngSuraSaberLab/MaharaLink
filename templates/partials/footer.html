@@ -1,0 +1,20 @@
+{% load static %}
+{% load i18n %}
+<footer id="footer" class="footer light-background">
+  <div class="container footer-bottom">
+    <div class="row gy-3">
+      <div class="col-md-6 order-2 order-md-1">
+        <div class="copyright">
+          <p>&copy; <span>{% trans "Copyright" %}</span> <strong class="sitename">SuraSaber</strong>. {% trans "All Rights Reserved." %}</p>
+        </div>
+      </div>
+      <div class="col-md-6 order-1 order-md-2">
+        <div class="legal-links">
+          <a href="tos.html">{% trans "Terms of Service" %}</a>
+          <a href="privacy.html">{% trans "Privacy Policy" %}</a>
+          <a href="privacy.html">{% trans "Cookies" %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
