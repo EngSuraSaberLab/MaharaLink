@@ -32,6 +32,25 @@ STATIC_SOURCE = ROOT_DIR / "staticfiles"
 MEDIA_SOURCE = ROOT_DIR / "media"
 BASE_PATH = "/MaharaLink"
 
+REQUIRED_STATIC_DIRS = ("css", "js", "img")
+REQUIRED_VENDOR_FILES = (
+    "bootstrap/css/bootstrap.min.css",
+    "bootstrap/js/bootstrap.bundle.min.js",
+    "bootstrap-icons/bootstrap-icons.css",
+    "bootstrap-icons/fonts/bootstrap-icons.woff",
+    "bootstrap-icons/fonts/bootstrap-icons.woff2",
+    "aos/aos.css",
+    "aos/aos.js",
+    "glightbox/css/glightbox.min.css",
+    "glightbox/js/glightbox.min.js",
+    "swiper/swiper-bundle.min.css",
+    "swiper/swiper-bundle.min.js",
+    "imagesloaded/imagesloaded.pkgd.min.js",
+    "isotope-layout/isotope.pkgd.min.js",
+    "purecounter/purecounter_vanilla.js",
+    "php-email-form/validate.js",
+)
+
 
 def ensure_clean_docs_dir() -> None:
     if DOCS_DIR.exists():
@@ -44,10 +63,21 @@ def copy_tree(src: Path, dst: Path) -> None:
         shutil.copytree(src, dst, dirs_exist_ok=True)
 
 
+def copy_file(src: Path, dst: Path) -> None:
+    if not src.exists():
+        return
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst)
+
+
 def copy_publish_assets() -> None:
     assets_dir = DOCS_DIR / "assets"
-    for name in ("css", "js", "vendor", "img"):
+    for name in REQUIRED_STATIC_DIRS:
         copy_tree(STATIC_SOURCE / name, assets_dir / name)
+
+    vendor_dir = assets_dir / "vendor"
+    for relative_path in REQUIRED_VENDOR_FILES:
+        copy_file(STATIC_SOURCE / "vendor" / relative_path, vendor_dir / relative_path)
 
     media_dir = DOCS_DIR / "media"
     for name in ("blog", "courses"):
@@ -76,6 +106,10 @@ def compress_published_assets() -> None:
         css_file.write_text(minify_css(css_file.read_text(encoding="utf-8")), encoding="utf-8")
     if js_file.exists():
         js_file.write_text(minify_js(js_file.read_text(encoding="utf-8")), encoding="utf-8")
+
+
+def write_publish_markers() -> None:
+    (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
 
 def base_url(lang: str) -> str:
@@ -308,6 +342,7 @@ def main() -> None:
         export_not_found(lang)
 
     compress_published_assets()
+    write_publish_markers()
     print(f"Static export generated in {DOCS_DIR}")
 
 
